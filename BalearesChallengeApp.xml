@@ -1,0 +1,197 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BalearesChallengeApp</name>
+    </assembly>
+    <members>
+        <member name="M:BalearesChallengeApp.Controllers.ContactController.Get">
+            <summary>
+            Retrieves all contacts
+            </summary>
+            <remarks>
+            Sample response:
+                
+                [
+                    {
+                        "id": 1,
+                        "name": "Lucas",
+                        "company": "TestCompany",
+                        "email": "lucas@testcompany.com",
+                        "dateOfBirth": "1992-02-14",
+                        "phoneNumber": "01112345678",
+                        "address": "Calle falsa 123",
+                        "cityId": 1,
+                        "cityName": "Villa Luzuriaga",
+                        "provinceName": "Buenos Aires"
+                    },
+                    {
+                      "id": 2,
+                      "name": "Name",
+                      "company": "Company",
+                      "email": "name@email.net",
+                      "dateOfBirth": "1993-10-10",
+                      "phoneNumber": "1112345678",
+                      "address": "Calle 123",
+                      "cityId": 5,
+                      "cityName": "Cosquin",
+                      "provinceName": "Cordoba"
+                    }
+                ]
+            
+            </remarks>
+            <response code="200">List of contacts</response>
+        </member>
+        <member name="M:BalearesChallengeApp.Controllers.ContactController.GetById(System.Int32)">
+            <summary>
+            Retrieves a specific contact by unique id
+            </summary>
+            <remarks>
+            Sample response:
+            
+                {
+                    "id": 1,
+                    "name": "Lucas",
+                    "company": "TestCompany",
+                    "email": "lucas@testcompany.com",
+                    "dateOfBirth": "1992-02-14",
+                    "phoneNumber": "01112345678",
+                    "address": "Calle falsa 123",
+                    "cityId": 1,
+                    "cityName": "Villa Luzuriaga",
+                    "provinceName": "Buenos Aires"
+                }
+                    
+            </remarks>
+            <param name="id"></param>
+            <response code="200">Contact</response>
+            <response code="404">Contact not found</response>
+        </member>
+        <member name="M:BalearesChallengeApp.Controllers.ContactController.Post(BalearesChallengeApp.Models.DTOs.ContactDto)">
+             <summary>
+             Creates a contact
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST 
+                 {
+                   "name": "Lucas",
+                   "company": "TestCompany",
+                   "email": "lucas@testcompany.com",
+                   "dateOfBirth": "1992-02-14",
+                   "phoneNumber": "01112345678",
+                   "address": "Calle falsa 123",
+                   "cityId": 1
+                 }
+            
+             </remarks>
+             <param name="contactDto"></param>
+             <response code="201">Contact created</response>
+             <response code="409">Conflict, contact already exist</response>
+        </member>
+        <member name="M:BalearesChallengeApp.Controllers.ContactController.Put(System.Int32,BalearesChallengeApp.Models.DTOs.ContactDto)">
+             <summary>
+             Updates a contact
+             </summary>
+             /// <remarks>
+             Sample request:
+            
+                 PUT 
+                 {
+                   "name": "Lucas",
+                   "company": "TestCompany",
+                   "email": "lucas@testcompany.com",
+                   "dateOfBirth": "1992-02-14",
+                   "phoneNumber": "01112345678",
+                   "address": "Calle falsa 123",
+                   "cityId": 1
+                 }
+            
+             </remarks>
+             <param name="id"></param>
+             <param name="contactDto"></param>
+             <response code="204">No Content</response>
+             <response code="400">Bad request</response>
+        </member>
+        <member name="M:BalearesChallengeApp.Controllers.ContactController.Delete(System.Int32)">
+            <summary>
+            Deletes a contact
+            </summary>
+            <param name="id"></param>
+            <response code="204">No Content</response>
+            <response code="404">Not Found</response>
+        </member>
+        <member name="M:BalearesChallengeApp.Controllers.ContactController.Find(System.String,System.String)">
+             <summary>
+             Finds a contact by email or phone
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 GET /actions/find?email=lucas@testcompany.com
+             
+             Sample response:
+             
+                 {
+                     "id": 1,
+                     "name": "Lucas",
+                     "company": "TestCompany",
+                     "email": "lucas@testcompany.com",
+                     "dateOfBirth": "1992-02-14",
+                     "phoneNumber": "01112345678",
+                     "address": "Calle falsa 123",
+                     "cityId": 1,
+                     "cityName": "Villa Luzuriaga",
+                     "provinceName": "Buenos Aires"
+                 }
+             
+             </remarks>
+             <param name="email"></param>
+             <param name="phone"></param>
+             <response code="200">Contact found</response>
+        </member>
+        <member name="M:BalearesChallengeApp.Controllers.ContactController.Search(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Search contacts by province or city
+            </summary>
+            <remarks>
+            Sample request:
+            
+                GET /actions/search?provinceId=1
+                
+            Sample response:
+            
+                [
+                    {
+                        "id": 1,
+                        "name": "Lucas",
+                        "company": "TestCompany",
+                        "email": "lucas@testcompany.com",
+                        "dateOfBirth": "1992-02-14",
+                        "phoneNumber": "01112345678",
+                        "address": "Calle falsa 123",
+                        "cityId": 1,
+                        "cityName": "Villa Luzuriaga",
+                        "provinceName": "Buenos Aires"
+                    },
+                    {
+                      "id": 3,
+                      "name": "NameTest",
+                      "company": "Comp",
+                      "email": "user@testemail.com",
+                      "dateOfBirth": "1995-10-18",
+                      "phoneNumber": "879456123",
+                      "address": "Cale 321",
+                      "cityId": 2,
+                      "cityName": "La Plata",
+                      "provinceName": "Buenos Aires"
+                    }
+                ]
+            
+            </remarks>
+            <param name="provinceId"></param>
+            <param name="cityId"></param>
+            <response code="200">List of matched contacts</response>
+        </member>
+    </members>
+</doc>
