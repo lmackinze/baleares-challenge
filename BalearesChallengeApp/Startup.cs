@@ -41,9 +41,11 @@ namespace BalearesChallengeApp
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
+
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "BalearesChallengeApp", Version = "v1" });
 
-                var filePath = System.IO.Path.Combine(System.AppContext.BaseDirectory, "BalearesChallengeApp.xml");
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var filePath = System.IO.Path.Combine(System.AppContext.BaseDirectory, xmlFile);
                 c.IncludeXmlComments(filePath);
             });
         }
