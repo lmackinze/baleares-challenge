@@ -5,7 +5,9 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>C:\Users\Admin\Source\Repos\baleares-challenge\BalearesChallengeApp.xml</DocumentationFile>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <!--<DocumentationFile>C:\Users\Admin\Source\Repos\baleares-challenge\BalearesChallengeApp.xml</DocumentationFile>-->
+    <DocumentationFile>bin\$(Configuration)\net5.0\$(AssemblyName).xml</DocumentationFile>
     <NoWarn>1701;1702;1591</NoWarn>
   </PropertyGroup>
 
