@@ -31,15 +31,15 @@ Pre-loaded cities are:
 
     Id	Name                    ProvinceId
     1	Villa Luzuriaga	        1
-    2	La Plata	            1
+    2	La Plata                1
     3	Tigre	                1
     4	Merlo	                1
     5	Cosquin	                2
     6	Villa General Belgrano	2
     7	Mina Clavero	        2
     8	San Martin De Los Andes	3
-    9	Villa La Angostura	    3
-    10	Centenario	            3
+    9	Villa La Angostura      3
+    10	Centenario              3
 
 ## Examples
 
